@@ -25,7 +25,8 @@
                         "ignoreFailures": true
                     }
                 ],
-                "preLaunchTask": "ROS workspace as env file",
+                // "preLaunchTask": "ROS workspace as env file",
+                "preLaunchTask": "catkin: build current package for debugging",
                 "envFile": "${workspaceFolder}/.env",
                 "miDebuggerPath": "/usr/bin/gdb"
             }

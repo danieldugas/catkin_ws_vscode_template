@@ -65,6 +65,42 @@
 		},
 
 		{
+			"type": "shell",
+			"command": "catkin build ${command:extension.rosPackageName} --cmake-args -DCMAKE_BUILD_TYPE=Debug -DCMAKE_EXPORT_COMPILE_COMMANDS=1",
+			"problemMatcher": [
+				"$catkin-gcc"
+			],
+			"label": "catkin_build_current_debug"
+		},
+
+		{
+			"command": "${workspaceFolder}/merge_compile_commands.sh",
+			"type": "shell",
+			"group": {
+				"kind": "build"
+			},
+			"label": "catkin_merge_compile_commands",
+			"problemMatcher": [],
+			"dependsOn": []
+		},
+
+		{
+			"label": "catkin: build current package for debugging",
+			"command": "echo built for debugging",
+			"type": "shell",
+			"group": {
+				"kind": "build"
+			},
+			"problemMatcher": [],
+			"dependsOrder": "sequence",
+			"dependsOn": [
+				"catkin_build_current_debug",
+				"catkin_merge_compile_commands",
+				"ROS workspace as env file"
+			]
+		},
+
+		{
 			"label": "source ROS workspace",
 			"command": "source ${workspaceFolder}/devel/setup.bash", // Could be any other shell command
 			"args": [],
