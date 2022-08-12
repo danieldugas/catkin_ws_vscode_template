@@ -43,21 +43,40 @@
 				"catkin_clean"
 			]
 		},
-        {
-            "label": "ROS: central_catkin_make",
-            "type": "catkin_make",
-            "args": [
-                "--directory",
-				"${workspaceFolderBasename}",
-                "-j4",
-                "-DCMAKE_BUILD_TYPE=Debug",
-                "-DCMAKE_EXPORT_COMPILE_COMMANDS=1"
-            ],
-            "problemMatcher": "$catkin-gcc",
-            "group": {
-                "kind": "build",
-                "isDefault": true
-            }
-        }
+		{
+			"type": "shell",
+			"command": "catkin build ${command:extension.rosPackageName} --cmake-args -DCMAKE_EXPORT_COMPILE_COMMANDS=1",  // <- ADD OTHER CMAKE DIRECTIVES HERE
+			"problemMatcher": [
+				"$catkin-gcc"
+			],
+			"label": "catkin_build_current"
+		},
+		{
+			"command": "${workspaceFolder}/merge_compile_commands.sh",
+			"type": "shell",
+			"group": {
+				"kind": "build"
+			},
+			"label": "catkin: build current",
+			"problemMatcher": [],
+			"dependsOn": [
+				"catkin_build_current"
+			]
+		},
+
+		{
+			"label": "source ROS workspace",
+			"command": "source ${workspaceFolder}/devel/setup.bash", // Could be any other shell command
+			"args": [],
+			"type": "shell"
+		},
+
+		{
+			"label": "ROS workspace as env file",
+			"command": "source ${workspaceFolder}/devel/setup.bash; printenv | grep $ROS_DISTRO > ${workspaceFolder}/.env",
+			"args": [],
+			"type": "shell"
+		}
+		
   ]
 }
