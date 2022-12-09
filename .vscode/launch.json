@@ -5,6 +5,28 @@
     "version": "0.2.0",
     "configurations": [
             {
+               "name": "Python: Current File as SCHEMA Module",
+               "type": "python",
+                "request": "launch",
+                 "module": "schema.${fileBasenameNoExtension}",
+                "justMyCode": true
+            },
+            {
+                "name": "Python: Current File",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal",
+                "justMyCode": true
+            },
+            {
+                "name": "Python: Tests",
+                "type": "python",
+                "request": "launch",
+                "module": "pytest",
+                "justMyCode": true
+            },
+            {
                 "name": "cppdbg : ROS Build and debug active file",
                 "type": "cppdbg",
                 "request": "launch",
