@@ -37,6 +37,14 @@
                 "justMyCode": true
             },
             {
+                "name": "Python: Schema Tests",
+                "type": "python",
+                "request": "launch",
+                "module": "pytest",
+                "justMyCode": true,
+                "cwd": "${workspaceFolder}/src/schema"
+            },
+            {
                 "name": "cppdbg : ROS Build and debug active file",
                 "type": "cppdbg",
                 "request": "launch",
