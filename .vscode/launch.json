@@ -20,6 +20,16 @@
                 "justMyCode": true
             },
             {
+                "name": "Python: Current ROS script",
+                "type": "python",
+                "request": "launch",
+                "program": "${file}",
+                "console": "integratedTerminal",
+                "justMyCode": true,
+                "preLaunchTask": "ROS workspace as env file",
+                "envFile": "${workspaceFolder}/.env",
+            },
+            {
                 "name": "Python: Tests",
                 "type": "python",
                 "request": "launch",

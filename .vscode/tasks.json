@@ -10,7 +10,8 @@
 			"label": "catkin_build"
 		},
 		{
-			"type": "catkin",
+			"type": "shell",
+			"command": "catkin",
 			"args": [
 				"clean",
 				"--yes"
